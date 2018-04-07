@@ -1,15 +1,15 @@
 @extends('main')
 
-@section('title', '| All Posts')
+@section('title', '| All Books')
 
 @section('content')
 
     <div class="row">
-        <div class="col-md-10">
-            <h1>All Posts</h1>
+        <div class="col-md-10 m-t-50">
+            <h1 class="title">All Books</h1>
         </div>
         <div class="col-md-2">
-            <a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-primary btn-h1-spacing">Create New Posts</a>
+            <a href="{{ route('posts.create') }}" class="btn btn-lg btn-block btn-primary btn-h1-spacing">Adding New Book</a>
         </div>
         <div class="col-md-12">
             <hr>
@@ -20,8 +20,8 @@
                 <table class="table">
                     <thead>
                         <th>#</th>
-                        <th>Title</th>
-                        <th>Body</th>
+                        <th>Book Title</th>
+                        <th>Description</th>
                         <th>Created At</th>
                         <th></th>
                     </thead>
@@ -37,6 +37,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="text-center">
+                    {!! $posts->links(); !!}
+                </div>
             </div>
         </div>
         

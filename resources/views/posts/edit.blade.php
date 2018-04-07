@@ -2,6 +2,12 @@
 
 @section('title', '| Edit Blog Post')
 
+@section('stylesheets')
+
+{!! Html::style('css/select2.css') !!}
+
+@endsection
+
 @section('content')
 
     <div class="row">
@@ -10,11 +16,20 @@
             {{ Form::label('title', 'Title:') }}
             {{ Form::text('title', null, ["class" => 'form-control col-form-label-lg']) }}
 
+            {{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
+            {{ Form::text('slug', null, ['class' => 'form-control']) }}
+
+            {{ Form::label('category_id', "Category:") }}
+            {{ Form:: select('category_id', $categories, null, ['class' => 'form-control']) }}
+
+            {{ Form::label('tags', 'Tags:', ['class' => 'form-spacing-top']) }}
+            {{ Form::select('tags[]', $tags, null, ['class' => 'form-control select2-multi', 'multiple' => "multiple"]) }}
+
             {{ Form::label('body', "Body:", ['class' => 'form-spacing-top']) }}
             {{ Form::textarea('body', null, ['class' => 'form-control']) }}
         </div>
         <div class="col-md-4">
-            <div class="well">
+            <div class="jumbotron">
                 <dl class="dl-horizontal">
                     <dt>Create At:</dt>
                     <dd>{{ date('M j, Y H:ia', strtotime($post->created_at)) }}</dd>
@@ -41,3 +56,13 @@
     </div> <!-- end of .row form -->
 
 @stop
+
+@section('scripts')
+
+{!! Html::script('js/select2.js') !!}
+
+<script type="text/javascript">
+    $('.select2-multi').select2();
+</script>
+
+@endsection

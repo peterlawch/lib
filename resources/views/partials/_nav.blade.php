@@ -10,6 +10,9 @@
                 <li class="{{ Request::is('/') ? "active" : ""}}">
                     <a class="nav-link" href="/">Home </a>
                 </li>
+                <li class="{{ Request::is('blog') ? "active" : ""}}">
+                    <a class="nav-link" href="/blog">Blog </a>
+                </li>
                 <li class="{{ Request::is('about') ? "active" : ""}}">
                     <a class="nav-link" href="/about">About </a>
                 </li>
@@ -22,11 +25,11 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
+                        <li><a href="{{ route('posts.index') }}">Posts</a></li>
                         <li><a href="#">Another action</a></li>
                         <li><a href="#">Something else here</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated Link</a></li>
+                        <li><a href="#">Logout</a></li>
                     </ul>
                 </li>
             </ul>

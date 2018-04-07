@@ -5,7 +5,8 @@
     </head>
     <body>
 
-        @include('partials._nav')
+        @include('_includes.nav.main')
+        
         
         <div class="container">
             @include('partials._messages')
@@ -18,7 +19,7 @@
 
             @include('partials._javascript')
 
-            @yield('scripts')
+            @yield('script')
     </body>
 
 </html>

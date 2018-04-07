@@ -6,10 +6,10 @@
         <div class="row">
             <div class="colum-md-12">
                 <div class="jumbotron">
-                    <h1 class="display-4">Welcome to My Blog</h1>
-                    <p class="lead">Thank you so much for visiting. This is my test website built with Laravel. Please read my popular post!</p>
+                    <h1 class="display-4">Welcome to SCMC LIBRARY</h1>
+                    <p class="lead">Thank you so much for visiting. 非常感谢您的来访. </p>
                     <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                    <p>WELCOME TO THE CHRISTIAN PDF BOOKS SECTION OF THE SCMCLIBRARY - AN ONLINE CHRISTIAN RESOURCE CENTER</p>
                     <p class="lead">
                     <a class="btn btn-primary btn-lg" href="#" role="button">Popular Post</a>
                     </p>
@@ -18,29 +18,18 @@
         </div> <!-- end of header .row -->
         <div class="row">
             <div class="col-md-8" >
-                <div class="post">
-                    <h3>Post Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nulla sed voluptas inventore blanditiis libero necessitatibus optio dolore in porro consequatur amet, suscipit molestiae facere minus nobis, doloremque, ad ex.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-                <hr>
-                <div class="post">
-                    <h3>Post Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nulla sed voluptas inventore blanditiis libero necessitatibus optio dolore in porro consequatur amet, suscipit molestiae facere minus nobis, doloremque, ad ex.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-                <hr>
-                <div class="post">
-                    <h3>Post Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nulla sed voluptas inventore blanditiis libero necessitatibus optio dolore in porro consequatur amet, suscipit molestiae facere minus nobis, doloremque, ad ex.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-                <hr>
-                <div class="post">
-                    <h3>Post Title</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nulla sed voluptas inventore blanditiis libero necessitatibus optio dolore in porro consequatur amet, suscipit molestiae facere minus nobis, doloremque, ad ex.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
+
+                @foreach($posts as $post)
+
+                    <div class="post">
+                        <h3>{{ $post->title }}</h3>
+                        <p>{{ substr($post->body, 0, 300) }}{{ strlen($post->body) > 300 ? " ..." : ""}}</p>
+                        <a href="{{ url('book/'.$post->slug) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                    <hr>
+
+                @endforeach
+
             </div>
             <div class="col-md-3 col-md-offset-1" >
                 <h2>Sidebar</h2>    
